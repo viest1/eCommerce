@@ -3,17 +3,17 @@ import { useEffect } from 'react';
 import { useMedia } from './useMedia';
 
 export const settingsDarkMode = (setThemeState) => {
-  const nameClass = 'dark-mode';
-  const nameClass2 = 'light-mode';
-  const element = document.querySelector('#root');
+  // const nameClass = 'dark-mode';
+  // const nameClass2 = 'light-mode';
+  // const element = document.querySelector('#root');
   if (localStorage.getItem('dark-mode-enabled') === 'true') {
-    element.classList.remove(nameClass2);
-    element.classList.add(nameClass);
+    // element.classList.remove(nameClass2);
+    // element.classList.add(nameClass);
     setThemeState('dark');
   } else {
-    element.classList.remove(nameClass);
-    element.classList.add(nameClass2);
-    element.style.transition = 'background-color 0.4s ease';
+    // element.classList.remove(nameClass);
+    // element.classList.add(nameClass2);
+    // element.style.transition = 'background-color 0.4s ease';
     setThemeState('light');
   }
 };

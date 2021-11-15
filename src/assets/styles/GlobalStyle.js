@@ -9,10 +9,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-    height: 100vh;
-    background-color: ${({ theme }) => theme.colors.green100};
+    min-height: 100vh;
+    background-color: ${({ theme }) => (theme.colors.blackHover ? '#1a1919' : theme.colors.green100)};
     font-size:14px;
     font-family: 'Nunito', sans-serif;
+    transition: background-color 0.4s ease;
   }
   input,button,textarea{
     font-family: 'Nunito', sans-serif;
@@ -38,16 +39,60 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.green200}
   }
 
-  img{
-    width:15px;
-    height:15px;
+  .ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 400ms;
   }
-  #root.dark-mode{
-    background-color: #1a1919;
-    color: #999;
+
+  .ReactModal__Overlay--after-open{
+    opacity: 1;
+    background-color:rgb(0 0 0 / 75%);
   }
-  #root.light-mode{
-    background-color: ${({ theme }) => theme.colors.green100};
-    transition: background-color 0.4s ease;
+
+  .ReactModal__Overlay--before-close{
+    opacity: 0;
+  }
+
+  .Modal {
+    background-color: ${({ theme }) => theme.colors.white};
+  }
+  .Overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0 0 0 / 75%);
+  }
+  .navLink{
+    list-style: none;
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.black};
+    font-size: 15px;
+    font-weight: bold;
+    &:after {
+      display: block;
+      content: '';
+      border-bottom: solid 3px ${({ theme }) => theme.colors.black};
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    &:hover:after {
+      transform: scaleX(1);
+    }
+  }
+  .navLink-active{
+    border-bottom: solid 1px ${({ theme }) => theme.colors.black};
+  }
+  .navLinkAccount{
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    list-style: none;
+    text-decoration: none;
+    &:hover {
+      background: ${({ theme }) => (theme.colors.toBlackHover ? theme.colors.toBlackHover : theme.colors.toWhiteHover)};
+    }
   }
 `;
