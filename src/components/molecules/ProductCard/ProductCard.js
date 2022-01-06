@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import Button from '../../atoms/Button/Button';
 import { ECommerceContext } from '../../../providers/GeneralProvider';
-import { CloseIcon } from '../../organisms/Modal/Modal.styles';
+import { CloseIcon } from '../../organisms/ModalReact/Modal.styles';
 import ItemInCart from '../ItemInCart/ItemInCart';
 import { sumCart } from '../../../helpers/sumCart';
 import { sortByTimestamp } from '../../../helpers/sortByTimestamp';
 import { sumQuantity } from '../../../helpers/sumQuantity';
-import Modal from '../../organisms/Modal/Modal';
-import useModal from '../../organisms/Modal/useModal';
+import Modal from '../../organisms/ModalReact/Modal';
+import useModal from '../../organisms/ModalReact/useModal';
 import ModalDetailsCheckout from '../ModalDetailsCheckout/ModalDetailsCheckout';
 import {
   ContainerDetailsToBuy,

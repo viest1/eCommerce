@@ -4,8 +4,8 @@ import { sumQuantity } from '../../../helpers/sumQuantity';
 import CartDisplayItem from '../../molecules/CartDisplayItem/CartDisplayItem';
 import { sumCart } from '../../../helpers/sumCart';
 import Button from '../../atoms/Button/Button';
-import useModal from '../Modal/useModal';
-import Modal from '../Modal/Modal';
+import useModal from '../ModalReact/useModal';
+import Modal from '../ModalReact/Modal';
 import { sortByTimestamp } from '../../../helpers/sortByTimestamp';
 import ModalDetailsCheckout from '../../molecules/ModalDetailsCheckout/ModalDetailsCheckout';
 import {

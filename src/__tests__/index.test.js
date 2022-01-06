@@ -1,7 +1,6 @@
 import React from 'react';
 import { renderWithProviders } from '../helpers/renderWithProviders';
-import Header from '../components/organisms/Header/Header';
-import { fireEvent, screen } from '@testing-library/react';
+import { fireEvent, screen, waitFor } from '@testing-library/react';
 import App from '../views/App';
 import { render } from '@testing-library/react';
 import FormAuth from '../components/templates/FormAuth/FormAuth';
@@ -27,15 +26,10 @@ describe('Form Auth', () => {
 describe('Form Field', () => {
   it('Renders the component', () => {
     renderWithProviders(<FormAuth />);
-    const button = screen.getByText('Log In');
     const loginTest = screen.getByPlaceholderText('Enter Login');
     const passwordTest = screen.getByPlaceholderText('Enter Password');
     fireEvent.change(loginTest, { target: { value: 'admin' } });
     fireEvent.change(passwordTest, { target: { value: '123' } });
-    const loginAfter = loginTest.value;
-    const passwordAfter = passwordTest.value;
-    console.log(loginAfter);
-    console.log(passwordAfter);
   });
 });
 
@@ -54,17 +48,14 @@ describe('App', () => {
   });
 });
 
-describe('App', () => {
-  it('Log in', () => {
+describe('App Overall', () => {
+  it('Click on Button Log In', async () => {
     render(<App />);
     const button = screen.getByText('Log In');
     const loginTest = screen.getByPlaceholderText('Enter Login');
     const passwordTest = screen.getByPlaceholderText('Enter Password');
     fireEvent.change(loginTest, { target: { value: 'admin' } });
     fireEvent.change(passwordTest, { target: { value: '123' } });
-    const loginAfter = loginTest.value;
-    const passwordAfter = passwordTest.value;
-    console.log(loginAfter);
-    console.log(passwordAfter);
+    fireEvent.click(button);
   });
 });

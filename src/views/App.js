@@ -22,7 +22,7 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 function App() {
   const [themeState, setThemeState] = useState('light');
   useEffect(() => settingsDarkMode(setThemeState), []);
-  const [auth, setAuth] = useLocalStorage(false);
+  const [auth, setAuth] = useLocalStorage('authECommerce',false);
 
   return (
     <Router>
